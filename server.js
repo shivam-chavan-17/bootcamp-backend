@@ -12,7 +12,7 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 
 dotenv.config();
@@ -32,6 +32,7 @@ app.use('/api/auth', authRoutes);
 // app.use(cors({
 //     origin: 'https://bootcamp-web.onrender.com', // Allow only your frontend
 // }));
+app.use(cors(corsOptions));
 
 
 const PORT = process.env.PORT || 5000;
