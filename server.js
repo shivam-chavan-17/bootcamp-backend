@@ -4,6 +4,17 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 
+const cors = require('cors');
+
+const corsOptions = {
+  origin: ['https://bootcamp-web.onrender.com', 'https://localhost:3000'], // Add frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
+
+
 dotenv.config();
 connectDB();
 
@@ -17,10 +28,10 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes);
 
-const cors = require('cors');
-app.use(cors({
-    origin: 'https://bootcamp-web.onrender.com', // Allow only your frontend
-}));
+// const cors = require('cors');
+// app.use(cors({
+//     origin: 'https://bootcamp-web.onrender.com', // Allow only your frontend
+// }));
 
 
 const PORT = process.env.PORT || 5000;
