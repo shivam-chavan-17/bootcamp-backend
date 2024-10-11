@@ -9,7 +9,8 @@ dotenv.config();
 connectDB();
 
 const corsOptions = {
-  origin: ['https://bootcamp-web.onrender.com', 'http://localhost:3000'], // Add frontend URL
+  // origin: ['https://bootcamp-web.onrender.com', 'http://localhost:3000'], // Add frontend URL
+  origin: ['http://localhost:3000'], // Add frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
@@ -20,8 +21,14 @@ app.use(express.json());  // Body parser middleware
 
 // Simple Route to test API
 app.get('/', (req, res) => {
+  console.log('ok...')
   res.send('API is running...');
 });
+
+// app.post('/', (req, res) =>{
+//   console.log(req.body)
+//   res.json({status: 'ok'})
+// })
 
 app.use('/api/auth', authRoutes);
 
