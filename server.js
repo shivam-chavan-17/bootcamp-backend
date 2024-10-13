@@ -25,11 +25,6 @@ app.get('/', (req, res) => {
   res.send('API is running...');
 });
 
-// app.post('/', (req, res) =>{
-//   console.log(req.body)
-//   res.json({status: 'ok'})
-// })
-
 app.use('/api/auth', authRoutes);
 
 const PORT = process.env.PORT || 5000;

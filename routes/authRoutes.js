@@ -17,4 +17,17 @@ router.get('/admin', protect, roleMiddleware('admin'), (req, res) => {
   res.send('Hello Admin');
 });
 
+router.get('/profile', protect, (req, res) => {
+  const user = req.user;
+  if (user) {
+      res.json({
+          name: user.name,
+          email: user.email,
+          role: user.role
+      });
+  } else {
+      res.status(401).json({ message: 'Unauthorized' });
+  }
+});
+
 module.exports = router;
