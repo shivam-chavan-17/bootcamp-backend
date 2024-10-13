@@ -9,8 +9,8 @@ dotenv.config();
 connectDB();
 
 const corsOptions = {
-  // origin: ['https://bootcamp-web.onrender.com', 'http://localhost:3000'], // Add frontend URL
-  origin: ['http://localhost:3000'], // Add frontend URL
+   origin: ['https://bootcamp-web.onrender.com', 'http://localhost:3000'], // Add frontend URL
+  //origin: ['http://localhost:3000'], // Add frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
